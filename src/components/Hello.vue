@@ -3,6 +3,9 @@
     <h1>{{ msg }}</h1>
     <draggable :resizable="false" :parent="true" drag-handle=".window-drag-handle">
       <div class="window">
+        <div class="shadow-rectangle">
+
+        </div>
         <header class="window-drag-handle">
           <span>Tool</span>
         </header>
@@ -42,10 +45,17 @@ h1, h2 {
   width: 100%;
 }
 .window {
-  margin: 10px;
   border: solid 1px;
   max-width: 500px;
   background-color: #EDECED;
+}
+.shadow-rectangle {
+  height: 100%;
+  width: 100%;
+  left: 5px;
+  z-index: -100;
+  background-color: grey;
+  position: absolute;
 }
 header {
   margin: 0;
@@ -57,7 +67,7 @@ header {
   color: black;
   text-align: center;
   font-family: Charcoal;
-  background-image: linear-gradient(0deg, #000 25%, transparent 25%, transparent 50%, #000 50%, #000 75%, transparent 75%, #fff);
+  background-image: linear-gradient(0deg, #000 0px, transparent 0px, transparent 1px, #000 1px, #000 2px, transparent 2px);
   background-size: 50px 3px;
   cursor: move;
 }
