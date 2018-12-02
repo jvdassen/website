@@ -1,10 +1,9 @@
 <template>
   <div class="wrapper">
-    <h1>{{ msg }}</h1>
+    <!-- <h1>{{ msg }}</h1> -->
     <draggable :resizable="false" :parent="true" drag-handle=".window-drag-handle">
       <div class="window">
         <div class="shadow-rectangle">
-
         </div>
         <header class="window-drag-handle">
           <span>Tool</span>
@@ -67,13 +66,14 @@ header {
   color: black;
   text-align: center;
   font-family: Charcoal;
+  font-size: 16px;
   background-image: linear-gradient(0deg, #000 0px, transparent 0px, transparent 1px, #000 1px, #000 2px, transparent 2px);
   background-size: 50px 3px;
   cursor: move;
 }
 header span {
   background-color: #EDECED;
-  padding: 0px 6px 0px 5px;
+  padding: 0px 6px 0px 3px;
 }
 .window-content {
   border-top: solid 1px black;

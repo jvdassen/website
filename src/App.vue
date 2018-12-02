@@ -1,7 +1,10 @@
 <template>
   <div id="app">
     <header>
-      <span class="main-header-title">vda</span>
+      <span class="main-header-title">File</span>
+      <span class="main-header-title">Edit</span>
+      <span class="main-header-title">View</span>
+
     </header>
     <main>
       <router-view></router-view>
@@ -18,6 +21,7 @@ export default {
 <style>
 body {
   margin: 0;
+  background-color: #858585;
 }
 
 #app {
@@ -28,28 +32,27 @@ body {
 }
 
 main {
-  margin-top: 40px;
   position: absolute;
-  height: 100%;
+  height: calc(100% - 28px);
   width: 100%;
 }
 
 header {
   margin: 0;
-  height: 56px;
-  padding: 0 16px 0 24px;
-  background-color: #35495E;
-  color: #ffffff;
+  height: 28px;
+  padding: 0 2px 0 12px;
+  font-size: 20px;
+  background-color: #ffffff;
+  color: black;
 }
 
 header .main-header-title {
-  display: block;
+  display: inline-block;
   position: relative;
-  font-size: 20px;
-  line-height: 1;
-  letter-spacing: .02em;
-  font-weight: 400;
+  font-size: 18px;
+  margin-right: 10px;
+  text-transform: capitalize;
   box-sizing: border-box;
-  padding-top: 16px;
+  padding-top: 2px;
 }
 </style>
