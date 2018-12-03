@@ -41,7 +41,7 @@ export default {
 <style>
 body {
   margin: 0;
-  background-image: linear-gradient(15deg, #d9afd9 -200%, #97d9e1 100%);
+  background-image: linear-gradient(15deg, #d9afd9 -500%, #97d9e1 100%);
 }
 
 #app {
