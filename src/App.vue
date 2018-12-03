@@ -3,11 +3,11 @@
     <header>
       <span class="main-header-title">File</span>
       <span class="main-header-title">Edit</span>
-      <span class="main-header-title">View</span>
-
+      <span class="main-header-title" @click="showAbout = !showAbout">About</span>
     </header>
     <main>
-      <router-view></router-view>
+      <os-window v-if="showAbout" @close="showAbout = false">
+      </os-window>
     </main>
   </div>
 </template>
