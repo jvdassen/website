@@ -13,15 +13,35 @@
 </template>
 
 <script>
+import Window from './components/Hello.vue'
+
 export default {
-  name: 'app'
+  name: 'app',
+  data: function () {
+    return {
+      showAbout: false
+    }
+  },
+  mounted: function () {
+    var perc = -500
+    incrAndUpdate()
+
+    function incrAndUpdate () {
+      perc += 10
+      document.querySelector('body').style.backgroundImage = `linear-gradient(19deg, #d9afd9 ${perc}%, #97d9e1 100%)`
+      if (perc < 10) { requestAnimationFrame(incrAndUpdate) }
+    }
+  },
+  components: {
+    'os-window': Window
+  }
 }
 </script>
 
 <style>
 body {
   margin: 0;
-  background-color: #858585;
+  background-image: linear-gradient(15deg, #d9afd9 -200%, #97d9e1 100%);
 }
 
 #app {

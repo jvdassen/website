@@ -46,17 +46,13 @@ h1, h2 {
   border: solid 1px;
   max-width: 500px;
   background-color: #EDECED;
-}
-.shadow-rectangle {
-  height: 100%;
-  width: 100%;
-  left: 5px;
-  z-index: -100;
-  background-color: grey;
-  position: absolute;
+  -webkit-box-shadow: 14px 15px 25px -1px rgba(122,122,122,1);
+  -moz-box-shadow: 14px 15px 25px -1px rgba(122,122,122,1);
+  box-shadow: 14px 15px 25px -1px rgba(122,122,122,1);
 }
 header {
   margin: 0;
+  width: calc(100% - 22px);
   height: 16px;
   margin: 3px 0px 3px 0px;
   box-sizing: border-box;
