@@ -19,9 +19,21 @@ export default {
 </script>
 
 <style>
+html, body {
+  height: 100%;
+  width: 100%;
+}
+html {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none; 
+  -ms-user-select: none; 
+  user-select: none; 
+}
 body {
   margin: 0;
-  background-color: #858585;
+  background-image: linear-gradient(19deg, #3EECAC 0%, #EE74E1 100%);
 }
 
 #app {
@@ -35,6 +47,7 @@ main {
   position: absolute;
   height: calc(100% - 28px);
   width: 100%;
+  background-image: linear-gradient(19deg, #3EECAC 0%, #EE74E1 100%);
 }
 
 header {

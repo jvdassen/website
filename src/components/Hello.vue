@@ -79,5 +79,10 @@ header span {
   border-top: solid 1px black;
   background-color: white;
   height: 100%;
+  padding: 5px;
+  box-sizing: border-box;
+}
+.window-content > h1 {
+  margin-top: 0px;
 }
 </style>
