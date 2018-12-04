@@ -3,10 +3,9 @@
     <!-- <h1>{{ msg }}</h1> -->
     <draggable :resizable="false" :parent="true" drag-handle=".window-drag-handle">
       <div class="window">
-        <div class="shadow-rectangle">
-        </div>
         <header class="window-drag-handle">
           <span>Tool</span>
+          <span class="close-button" @click="$emit('close')">X</span>
         </header>
         <div class="window-content">
           <h1>sometitle</h1>
@@ -47,17 +46,13 @@ h1, h2 {
   border: solid 1px;
   max-width: 500px;
   background-color: #EDECED;
-}
-.shadow-rectangle {
-  height: 100%;
-  width: 100%;
-  left: 5px;
-  z-index: -100;
-  background-color: grey;
-  position: absolute;
+  -webkit-box-shadow: 14px 15px 25px -1px rgba(122,122,122,1);
+  -moz-box-shadow: 14px 15px 25px -1px rgba(122,122,122,1);
+  box-shadow: 14px 15px 25px -1px rgba(122,122,122,1);
 }
 header {
   margin: 0;
+  width: calc(100% - 22px);
   height: 16px;
   margin: 3px 0px 3px 0px;
   box-sizing: border-box;
@@ -74,6 +69,10 @@ header {
 header span {
   background-color: #EDECED;
   padding: 0px 6px 0px 3px;
+}
+.close-button {
+  position: absolute;
+  right: 1px;
 }
 .window-content {
   border-top: solid 1px black;

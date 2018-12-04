@@ -3,18 +3,38 @@
     <header>
       <span class="main-header-title">File</span>
       <span class="main-header-title">Edit</span>
-      <span class="main-header-title">View</span>
-
+      <span class="main-header-title" @click="showAbout = !showAbout">About</span>
     </header>
     <main>
-      <router-view></router-view>
+      <os-window v-if="showAbout" @close="showAbout = false">
+      </os-window>
     </main>
   </div>
 </template>
 
 <script>
+import Window from './components/Hello.vue'
+
 export default {
-  name: 'app'
+  name: 'app',
+  data: function () {
+    return {
+      showAbout: false
+    }
+  },
+  mounted: function () {
+    var perc = -500
+    incrAndUpdate()
+
+    function incrAndUpdate () {
+      perc += 10
+      document.querySelector('body').style.backgroundImage = `linear-gradient(19deg, #3EECAC ${perc}%, #EE74E1 100%)`
+      if (perc < 10) { requestAnimationFrame(incrAndUpdate) }
+    }
+  },
+  components: {
+    'os-window': Window
+  }
 }
 </script>
 
@@ -27,13 +47,13 @@ html {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
-  -moz-user-select: none; 
-  -ms-user-select: none; 
-  user-select: none; 
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 body {
   margin: 0;
-  background-image: linear-gradient(19deg, #3EECAC 0%, #EE74E1 100%);
+  background-image: linear-gradient(19deg, #3EECAC -500%, #EE74E1 100%);
 }
 
 #app {
