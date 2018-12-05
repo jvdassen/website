@@ -1,7 +1,11 @@
 <template>
   <div class="wrapper">
     <!-- <h1>{{ msg }}</h1> -->
-    <draggable :resizable="false" :parent="true" drag-handle=".window-drag-handle">
+    <draggable :resizable="false" 
+               :parent="true" 
+               drag-handle=".window-drag-handle" 
+               :x="initialPosition.x"
+               :y="initialPosition.y">
       <div class="window">
         <header class="window-drag-handle">
           <span>Tool</span>
@@ -29,6 +33,17 @@ export default {
   },
   components: {
     'draggable': VueDraggableResizable
+  },
+  mounted: function () {
+    console.log('OS Window mounted', global, window, Window)
+  },
+  computed: {
+    'initialPosition': function () {
+      return {
+        x: (window.innerWidth / 2) - 100,
+        y: (window.innerHeight / 2) - 100
+      }
+    }
   }
 }
 </script>

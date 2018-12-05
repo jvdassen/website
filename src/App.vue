@@ -4,6 +4,8 @@
       <span class="main-header-title">File</span>
       <span class="main-header-title">Edit</span>
       <span class="main-header-title" @click="showAbout = !showAbout">About</span>
+      <span class="main-header-title right" @click="shutdown">Quit</span>
+
     </header>
     <main>
       <os-window v-if="showAbout" @close="showAbout = false">
@@ -13,7 +15,7 @@
 </template>
 
 <script>
-import Window from './components/Hello.vue'
+import OSWindow from './components/Hello.vue'
 
 export default {
   name: 'app',
@@ -33,12 +35,20 @@ export default {
     }
   },
   components: {
-    'os-window': Window
+    'os-window': OSWindow
+  },
+  methods: {
+    shutdown: function () {
+    }
   }
 }
 </script>
 
 <style>
+html, body {
+  height: 100%;
+  width: 100%;
+}
 body {
   margin: 0;
   background-image: linear-gradient(15deg, #d9afd9 -500%, #97d9e1 100%);
@@ -74,5 +84,8 @@ header .main-header-title {
   text-transform: capitalize;
   box-sizing: border-box;
   padding-top: 2px;
+}
+.right {
+  float: right;
 }
 </style>
