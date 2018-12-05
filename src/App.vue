@@ -11,31 +11,53 @@
       <os-window v-if="showAbout" @close="showAbout = false">
       </os-window>
     </main>
+    <screensaver v-if="showScreensaver">
+    </screensaver>
   </div>
 </template>
 
 <script>
 import OSWindow from './components/Hello.vue'
+import Screensaver from './components/Screensaver.vue'
 
 export default {
   name: 'app',
   data: function () {
     return {
-      showAbout: false
+      showAbout: false,
+      showScreensaver: false
     }
   },
   mounted: function () {
+    var app = this
     var perc = -500
     incrAndUpdate()
+    detectInactivity()
 
     function incrAndUpdate () {
       perc += 10
       document.querySelector('body').style.backgroundImage = `linear-gradient(19deg, #D9AFD9 ${perc}%, #97D9E1 100%)`
       if (perc < 10) { requestAnimationFrame(incrAndUpdate) }
     }
+
+    function detectInactivity () {
+      var mouseMoveId
+
+      mouseMoveId = setTimeout(function () {
+        app.showScreensaver = true
+      }, 30000)
+      document.onmousemove = function () {
+        app.showScreensaver = false
+        clearTimeout(mouseMoveId)
+        mouseMoveId = setTimeout(function () {
+          app.showScreensaver = true
+        }, 30000)
+      }
+    }
   },
   components: {
-    'os-window': OSWindow
+    'os-window': OSWindow,
+    'screensaver': Screensaver
   },
   methods: {
     shutdown: function () {
