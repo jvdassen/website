@@ -12,7 +12,11 @@
 
     </header>
     <main>
-      <os-window v-if="showAbout" @close="showAbout = false">
+      <os-window 
+        v-if="showAbout" 
+        @close="showAbout = false"
+        :title="'About'"
+        :content="'Jan von der Assen Web Developer'">
       </os-window>
     </main>
     <screensaver v-if="showScreensaver">
@@ -21,7 +25,7 @@
 </template>
 
 <script>
-import OSWindow from './components/Hello.vue'
+import OSWindow from './components/OSWindow.vue'
 import Screensaver from './components/Screensaver.vue'
 
 export default {

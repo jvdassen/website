@@ -7,13 +7,11 @@
                :y="initialPosition.y">
       <div class="window">
         <header class="window-drag-handle">
-          <span>Tool</span>
+          <span> {{ title }} </span>
           <span class="close-button" @click="$emit('close')">X</span>
         </header>
         <div class="window-content">
-          <h1>sometitle</h1>
-          <p>some content</p>
-          <p>some stuff</p>
+          {{ content }}
         </div>
       </div>
     </draggable>
@@ -24,12 +22,13 @@
 import VueDraggableResizable from 'vue-draggable-resizable'
 
 export default {
-  name: 'hello',
+  name: 'oswindow',
   data () {
     return {
       msg: 'Welcome to Your Vue.js PWA'
     }
   },
+  props: [ 'title', 'content' ],
   components: {
     'draggable': VueDraggableResizable
   },
