@@ -30,7 +30,7 @@ export default {
 
     function incrAndUpdate () {
       perc += 10
-      document.querySelector('body').style.backgroundImage = `linear-gradient(19deg, #3EECAC ${perc}%, #EE74E1 100%)`
+      document.querySelector('body').style.backgroundImage = `linear-gradient(19deg, #D9AFD9 ${perc}%, #97D9E1 100%)`
       if (perc < 10) { requestAnimationFrame(incrAndUpdate) }
     }
   },
@@ -59,40 +59,43 @@ html {
 }
 body {
   margin: 0;
-  background-image: linear-gradient(19deg, #3EECAC -500%, #EE74E1 100%);
+  background-image: linear-gradient(15deg, #d9afd9 -500%, #97d9e1 100%);
 }
-
 #app {
   font-family: Charcoal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
 }
-
 main {
   position: absolute;
   height: calc(100% - 28px);
   width: 100%;
-  background-image: linear-gradient(19deg, #3EECAC 0%, #EE74E1 100%);
 }
-
 header {
   margin: 0;
   height: 28px;
   padding: 0 2px 0 12px;
   font-size: 20px;
-  background-color: #ffffff;
+  background-color: #f8f7f8;
   color: black;
 }
 
 header .main-header-title {
   display: inline-block;
+  height: 100%;
   position: relative;
   font-size: 18px;
-  margin-right: 10px;
+  padding: 0 5px 0 5px;
   text-transform: capitalize;
   box-sizing: border-box;
   padding-top: 2px;
+}
+.main-header-title:hover {
+  background-color: #d7d5d7;
+}
+.main-header-title:active {
+  background-color: #b2aeb2;
 }
 .right {
   float: right;
