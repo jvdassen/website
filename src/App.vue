@@ -1,6 +1,10 @@
 <template>
   <div id="app">
     <header>
+      <span class="main-header-title main-header-image">
+       <img src="/static/img/computer.ico">
+ 
+      </span>
       <span class="main-header-title">File</span>
       <span class="main-header-title">Edit</span>
       <span class="main-header-title" @click="showAbout = !showAbout">About</span>
@@ -84,10 +88,9 @@ body {
   background-image: linear-gradient(15deg, #d9afd9 -500%, #97d9e1 100%);
 }
 #app {
-  font-family: Charcoal;
+  font-family: chicagoplain;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
 }
 main {
   position: absolute;
@@ -98,7 +101,6 @@ header {
   margin: 0;
   height: 28px;
   padding: 0 2px 0 12px;
-  font-size: 20px;
   background-color: #f8f7f8;
   color: black;
 }
@@ -113,12 +115,17 @@ header .main-header-title {
   box-sizing: border-box;
   padding-top: 2px;
 }
+
 .main-header-title:hover {
   background-color: #d7d5d7;
 }
 .main-header-title:active {
   background-color: #b2aeb2;
 }
+.main-header-image > img{
+  height: 16px;
+  padding-top: 2px;
+} 
 .right {
   float: right;
 }

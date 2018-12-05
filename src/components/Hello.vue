@@ -74,8 +74,7 @@ header {
   background-color: #EDECED;
   color: black;
   text-align: center;
-  font-family: Charcoal;
-  font-size: 16px;
+  font-size: 14px;
   background-image: linear-gradient(0deg, #000 0px, transparent 0px, transparent 1px, #000 1px, #000 2px, transparent 2px);
   background-size: 50px 3px;
   cursor: move;
