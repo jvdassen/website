@@ -1,9 +1,8 @@
 <template>
   <div class="wrapper">
-    <!-- <h1>{{ msg }}</h1> -->
     <draggable :resizable="false" 
-               :parent="true" 
-               drag-handle=".window-drag-handle" 
+               :parent="true"
+               drag-handle=".window-drag-handle"
                :x="initialPosition.x"
                :y="initialPosition.y">
       <div class="window">
@@ -93,5 +92,10 @@ header span {
   border-top: solid 1px black;
   background-color: white;
   height: 100%;
+  padding: 5px;
+  box-sizing: border-box;
+}
+.window-content > h1 {
+  margin-top: 0px;
 }
 </style>

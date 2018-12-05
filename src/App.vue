@@ -30,7 +30,7 @@ export default {
 
     function incrAndUpdate () {
       perc += 10
-      document.querySelector('body').style.backgroundImage = `linear-gradient(19deg, #d9afd9 ${perc}%, #97d9e1 100%)`
+      document.querySelector('body').style.backgroundImage = `linear-gradient(19deg, #3EECAC ${perc}%, #EE74E1 100%)`
       if (perc < 10) { requestAnimationFrame(incrAndUpdate) }
     }
   },
@@ -45,13 +45,21 @@ export default {
 </script>
 
 <style>
-html, body {
+html, body {
   height: 100%;
   width: 100%;
 }
+html {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 body {
   margin: 0;
-  background-image: linear-gradient(15deg, #d9afd9 -500%, #97d9e1 100%);
+  background-image: linear-gradient(19deg, #3EECAC -500%, #EE74E1 100%);
 }
 
 #app {
@@ -65,6 +73,7 @@ main {
   position: absolute;
   height: calc(100% - 28px);
   width: 100%;
+  background-image: linear-gradient(19deg, #3EECAC 0%, #EE74E1 100%);
 }
 
 header {
