@@ -1,6 +1,7 @@
 <template>
   <div class="wrapper">
-    <draggable :resizable="false" 
+    <draggable class="oswindow" 
+               :resizable="false" 
                :parent="true"
                drag-handle=".window-drag-handle"
                :x="initialPosition.x"
@@ -95,5 +96,12 @@ header span {
 }
 .window-content > h1 {
   margin-top: 0px;
+}
+.oswindow {
+  -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: fadein 1s; /* Firefox < 16 */
+  -ms-animation: fadein 1s; /* Internet Explorer */
+  -o-animation: fadein 1s; /* Opera < 12.1 */
+  animation: fadein 1s;
 }
 </style>

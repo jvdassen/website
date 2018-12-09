@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <header>
+    <header v-if="hasLoaded">
       <span class="main-header-title main-header-image">
        <img src="/static/img/computer.ico">
  
@@ -33,7 +33,8 @@ export default {
   data: function () {
     return {
       showAbout: false,
-      showScreensaver: false
+      showScreensaver: false,
+      hasLoaded: false
     }
   },
   mounted: function () {
@@ -43,9 +44,13 @@ export default {
     detectInactivity()
 
     function incrAndUpdate () {
-      perc += 10
+      perc += 8
       document.querySelector('body').style.backgroundImage = `linear-gradient(19deg, #D9AFD9 ${perc}%, #97D9E1 100%)`
-      if (perc < 10) { requestAnimationFrame(incrAndUpdate) }
+      if (perc < 10) {
+        requestAnimationFrame(incrAndUpdate)
+      } else {
+        setTimeout(function () { app.hasLoaded = true }, 100)
+      }
     }
 
     function detectInactivity () {
@@ -107,6 +112,11 @@ header {
   padding: 0 2px 0 12px;
   background-color: #f8f7f8;
   color: black;
+  -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: fadein 2s; /* Firefox < 16 */
+  -ms-animation: fadein 2s; /* Internet Explorer */
+  -o-animation: fadein 2s; /* Opera < 12.1 */
+  animation: fadein 1s;
 }
 
 header .main-header-title {
@@ -132,5 +142,33 @@ header .main-header-title {
 } 
 .right {
   float: right;
+}
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
 }
 </style>
