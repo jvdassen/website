@@ -25,6 +25,13 @@ export default {
 
     requestAnimationFrame(moveAndDraw)
 
+    window.onresize = function () {
+      canvas.width = window.innerWidth
+      canvas.height = window.innerHeight
+      r.x = 10
+      r.y = 10
+    }
+
     function moveAndDraw () {
       r.move()
       r.render()
