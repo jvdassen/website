@@ -33,9 +33,17 @@ export default {
     }
 
     function moveAndDraw () {
-      r.move()
-      r.render()
-      requestAnimationFrame(moveAndDraw)
+      if (document.hidden) {
+        document.addEventListener('visibilitychange', function () {
+          r.move()
+          r.render()
+          requestAnimationFrame(moveAndDraw)
+        })
+      } else {
+        r.move()
+        r.render()
+        requestAnimationFrame(moveAndDraw)
+      }
     }
 
     function Rect (x) {
