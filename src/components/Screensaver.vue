@@ -20,7 +20,7 @@ export default {
     canvas.height = window.innerHeight
 
     var ctx = canvas.getContext('2d')
-    ctx.fillStyle = '#ff00af'
+    ctx.fillStyle = 'rgb(217, 175, 217)'
     var r = new Rect(10)
 
     requestAnimationFrame(moveAndDraw)
@@ -85,6 +85,6 @@ canvas {
   width: 100%;
   height: 100%;
   border: 1px black;
-  background: grey;
+  background: rgb(151, 217, 225);
 }
 </style>
