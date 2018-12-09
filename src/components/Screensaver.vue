@@ -22,15 +22,12 @@ export default {
     var ctx = canvas.getContext('2d')
     ctx.fillStyle = '#ff00af'
     var r = new Rect(10)
-    var r2 = new Rect(500)
 
     requestAnimationFrame(moveAndDraw)
 
     function moveAndDraw () {
       r.move()
       r.render()
-      r2.move()
-      r2.render()
       requestAnimationFrame(moveAndDraw)
     }
 

@@ -53,13 +53,13 @@ export default {
 
       mouseMoveId = setTimeout(function () {
         app.showScreensaver = true
-      }, 30000)
+      }, 5000)
       document.onmousemove = function () {
         app.showScreensaver = false
         clearTimeout(mouseMoveId)
         mouseMoveId = setTimeout(function () {
           app.showScreensaver = true
-        }, 30000)
+        }, 5000)
       }
     }
   },
