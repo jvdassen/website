@@ -52,8 +52,8 @@ export default {
       this.y = window.innerHeight / 2 - 50
       this.width = 100
       this.height = 100
-      this.directionX = -(Math.random() * 5)
-      this.directionY = -5
+      this.directionX = -(Math.random() * 3)
+      this.directionY = -3
 
       this.move = function () {
         if (this.x <= 0 || this.x >= canvas.width - 100) {
