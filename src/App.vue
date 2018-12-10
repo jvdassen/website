@@ -5,8 +5,17 @@
        <img src="/static/img/computer.ico">
  
       </span>
-      <span class="main-header-title">File</span>
-      <span class="main-header-title">Edit</span>
+      <div class="main-header-title">File
+        <div class="main-header-content">
+          <div class="">Settings</div>
+        </div>
+      </div>
+      <div class="main-header-title">Go
+        <div class="main-header-content">
+          <div class="">GitHub</div>
+          <div class="">Linkedin</div>
+        </div>
+      </div>
       <span class="main-header-title" @click="showAbout = !showAbout">About</span>
       <span class="main-header-title right" v-if="showFullScreen" @click="exitFullscreen">Quit</span>
 
@@ -140,8 +149,21 @@ header .main-header-title {
   padding-top: 2px;
 }
 
+.main-header-content {
+  display: none;
+  position: absolute;
+  left: 0px;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
 .main-header-title:hover {
   background-color: #d7d5d7;
+}
+.main-header-title:active .main-header-content, .main-header-title:hover .main-header-content {
+  display: block;
 }
 .main-header-title:active {
   background-color: #b2aeb2;
@@ -150,6 +172,16 @@ header .main-header-title {
   height: 16px;
   padding-top: 2px;
 } 
+
+.main-header-content div {
+  border-style: solid;
+  border-width: 0 0 1px 0;
+  padding: 6px 8px;
+}
+
+.main-header-content div:last-child {
+  border-style: none;
+}
 .right {
   float: right;
 }
