@@ -28,8 +28,9 @@ export default {
     window.onresize = function () {
       canvas.width = window.innerWidth
       canvas.height = window.innerHeight
-      r.x = 10
-      r.y = 10
+      ctx.fillStyle = 'rgb(217, 175, 217)'
+      r.x = window.innerWidth / 2 - 50
+      r.y = window.innerHeight / 2 - 50
     }
 
     function moveAndDraw () {
@@ -47,8 +48,8 @@ export default {
     }
 
     function Rect (x) {
-      this.x = x
-      this.y = 10
+      this.x = window.innerWidth / 2 - 50
+      this.y = window.innerHeight / 2 - 50
       this.width = 100
       this.height = 100
       this.directionX = -(Math.random() * 5)
