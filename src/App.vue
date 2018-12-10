@@ -159,15 +159,18 @@ header .main-header-title {
   z-index: 1;
 }
 
-.main-header-title:hover {
-  background-color: #d7d5d7;
-}
 .main-header-title:active .main-header-content, .main-header-title:hover .main-header-content {
   display: block;
 }
-.main-header-title:active {
+
+.main-header-title:hover, .main-header-content div:hover  {
+  background-color: #d7d5d7;
+}
+
+.main-header-title:active, .main-header-content div:active {
   background-color: #b2aeb2;
 }
+
 .main-header-image > img{
   height: 16px;
   padding-top: 2px;
