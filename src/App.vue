@@ -1,14 +1,14 @@
 <template>
   <div id="app">
     <header v-if="hasLoaded">
-      <span class="main-header-title main-header-image">
+      <span class="main-header-title main-header-image" @click="requestFullScreen">
        <img src="/static/img/computer.ico">
  
       </span>
       <span class="main-header-title">File</span>
       <span class="main-header-title">Edit</span>
       <span class="main-header-title" @click="showAbout = !showAbout">About</span>
-      <span class="main-header-title right" @click="shutdown">Quit</span>
+      <span class="main-header-title right" v-if="showFullScreen" @click="exitFullscreen">Quit</span>
 
     </header>
     <main>
@@ -34,7 +34,8 @@ export default {
     return {
       showAbout: false,
       showScreensaver: false,
-      hasLoaded: false
+      hasLoaded: false,
+      showFullScreen: false
     }
   },
   mounted: function () {
@@ -74,6 +75,15 @@ export default {
   },
   methods: {
     shutdown: function () {
+    },
+    requestFullScreen: function () {
+      var eldem = document.querySelector('html')
+      console.log('fullscreen: ', eldem.webkitRequestFullScreen())
+      this.showFullScreen = true
+    },
+    exitFullscreen: function () {
+      document.exitFullscreen()
+      this.showFullScreen = false
     }
   }
 }
