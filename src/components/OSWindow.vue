@@ -1,22 +1,20 @@
 <template>
-  <div class="wrapper">
-    <draggable class="oswindow" 
-               :resizable="false" 
-               :parent="true"
-               drag-handle=".window-drag-handle"
-               :x="initialPosition.x"
-               :y="initialPosition.y">
-      <div class="window">
-        <header class="window-drag-handle">
-          <span> {{ title }} </span>
-          <span class="close-button" @click="$emit('close')">X</span>
-        </header>
-        <div class="window-content">
-          {{ content }}
-        </div>
+  <draggable class="oswindow" 
+             :resizable="false" 
+             :parent="true"
+             drag-handle=".window-drag-handle"
+             :x="initialPosition.x"
+             :y="initialPosition.y">
+    <div class="window">
+      <header class="window-drag-handle">
+        <span> {{ title }} </span>
+        <span class="close-button" @click="$emit('close')">X</span>
+      </header>
+      <div class="window-content">
+        {{ content }}
       </div>
-    </draggable>
-  </div>
+    </div>
+  </draggable>
 </template>
 
 <script>
@@ -51,10 +49,6 @@ export default {
 <style scoped>
 h1, h2 {
   font-weight: normal;
-}
-.wrapper {
-  height: 100%;
-  width: 100%;
 }
 .window {
   border: solid 1px;
