@@ -7,13 +7,13 @@
       </span>
       <div class="main-header-title">File
         <div class="main-header-content">
-          <div class="">Settings</div>
+          <div class="" @click="showSettings = !showSettings">Settings</div>
         </div>
       </div>
       <div class="main-header-title">Go
         <div class="main-header-content">
-          <div class="">GitHub</div>
-          <div class="">Linkedin</div>
+          <div class=""><a href="https://github.com/jvdassen">GitHub</a></div>
+          <div class=""><a href="https://linkedin.com/in/jan-von-der-assen-975083105">LinkedIn</a></div>
         </div>
       </div>
       <span class="main-header-title" @click="showAbout = !showAbout">About</span>
@@ -26,6 +26,12 @@
         @close="showAbout = false"
         :title="'About'"
         :content="'Jan von der Assen Web Developer'">
+      </os-window>
+      <os-window 
+        v-if="showSettings" 
+        @close="showSettings = false"
+        :title="'Settings'"
+        :content="'Show Fullscreen? Enable screensaver?'">
       </os-window>
     </main>
     <screensaver v-if="showScreensaver">
@@ -42,6 +48,7 @@ export default {
   data: function () {
     return {
       showAbout: false,
+      showSettings: false,
       showScreensaver: false,
       hasLoaded: false,
       showFullScreen: false
@@ -184,6 +191,10 @@ header .main-header-title {
 
 .main-header-content div:last-child {
   border-style: none;
+}
+a {
+  color: inherit; /* blue colors for links too */
+  text-decoration: inherit; /* no underline */
 }
 .right {
   float: right;
