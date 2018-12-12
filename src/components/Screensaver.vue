@@ -1,6 +1,8 @@
 <template> 
   <canvas class="screensaver-canvas">
+    <img id="screensaver-icon" src="static/img/sad_mac.png">
   </canvas>
+  
 </template>
 
 <script>
@@ -28,7 +30,6 @@ export default {
     window.onresize = function () {
       canvas.width = window.innerWidth
       canvas.height = window.innerHeight
-      ctx.fillStyle = 'rgb(217, 175, 217)'
       r.x = window.innerWidth / 2 - 50
       r.y = window.innerHeight / 2 - 50
     }
@@ -56,9 +57,9 @@ export default {
       this.directionY = -3
 
       this.move = function () {
-        if (this.x <= 0 || this.x >= canvas.width - 100) {
+        if (this.x <= 0 || this.x >= canvas.width - 78) {
           this.directionX = -this.directionX
-        } else if (this.y >= canvas.height - 100 || this.y <= 0) {
+        } else if (this.y >= canvas.height - 103 || this.y <= 0) {
           this.directionY = -this.directionY
         }
         this.x = this.x + this.directionX
@@ -67,10 +68,8 @@ export default {
 
       this.render = function () {
         ctx.clearRect(0, 0, canvas.width, canvas.height)
-        ctx.fillRect(this.x, this.y, this.width, this.height)
-        ctx.shadowOffsetX = 15
-        ctx.shadowOffsetY = 15
-        ctx.fill()
+        var img = document.getElementById('screensaver-icon')
+        ctx.drawImage(img, this.x, this.y)
       }
     }
   },
