@@ -8,6 +8,7 @@
       <div class="main-header-title">File
         <div class="main-header-content">
           <div class="" @click="showSettings = !showSettings">Settings</div>
+          <div class="" @click="reloadDocument">Restart</div>
         </div>
       </div>
       <div class="main-header-title">Go
@@ -91,6 +92,9 @@ export default {
   },
   methods: {
     shutdown: function () {
+    },
+    reloadDocument: function () {
+      location.reload()
     },
     requestFullScreen: function () {
       var eldem = document.querySelector('html')
