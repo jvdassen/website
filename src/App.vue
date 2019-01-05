@@ -25,14 +25,21 @@
       <os-window 
         v-if="showAbout" 
         @close="showAbout = false"
-        :title="'About'"
-        :content="'Jan von der Assen Web Developer'">
+        :title="'About'">
+        <div class="about-content-wrapper content-wrapper">
+          <p>Jan von der Assen</p>
+          <p>●</p>
+          <p>Web Developer</p>
+        </div>
       </os-window>
       <os-window 
         v-if="showSettings" 
         @close="showSettings = false"
-        :title="'Settings'"
-        :content="'Show Fullscreen? Enable screensaver?'">
+        :title="'Settings'">
+        <div class="content-wrapper">
+          <div><span>Use Fullscreen</span></div>
+          <div><span>Enable Screensaver</span></div>
+        </div>
       </os-window>
     </main>
     <screensaver v-if="showScreensaver">
@@ -205,6 +212,13 @@ header .main-header-title {
 a {
   color: inherit; /* blue colors for links too */
   text-decoration: inherit; /* no underline */
+}
+.content-wrapper {
+  padding: 40px;
+  //width: 300px;
+}
+.about-content-wrapper {
+  text-align: center;
 }
 .right {
   float: right;

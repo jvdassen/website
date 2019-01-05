@@ -12,6 +12,7 @@
       </header>
       <div class="window-content">
         {{ content }}
+        <slot></slot>
       </div>
     </div>
   </draggable>
