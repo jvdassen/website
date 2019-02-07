@@ -67,9 +67,12 @@ export default {
       }
 
       this.render = function () {
-        ctx.clearRect(0, 0, canvas.width, canvas.height)
-        var img = document.getElementById('screensaver-icon')
-        ctx.drawImage(img, this.x, this.y)
+        try {
+          ctx.clearRect(0, 0, canvas.width, canvas.height)
+          var img = document.getElementById('screensaver-icon')
+          ctx.drawImage(img, this.x, this.y)
+        } catch (e) {
+        }
       }
     }
   },
