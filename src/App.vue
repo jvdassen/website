@@ -22,6 +22,18 @@
       <!--span class="main-header-title right" v-if="showFullScreen" @click="exitFullscreen">Quit</span-->
     </header>
     <main>
+      <desktop-icon
+        icon="static/img/folder_system.png"
+        title="Settings">
+      </desktop-icon>
+      <desktop-icon
+        icon="static/img/folder_floppy.png"
+        title="About">
+      </desktop-icon>
+      <desktop-icon
+        icon="static/img/sad_mac.png"
+        title="Trash">
+      </desktop-icon>
       <os-window 
         v-if="showAbout" 
         @close="showAbout = false"
@@ -50,6 +62,7 @@
 <script>
 import OSWindow from './components/OSWindow.vue'
 import Screensaver from './components/Screensaver.vue'
+import DesktopItem from './components/DesktopIcon.vue'
 
 export default {
   name: 'app',
@@ -110,7 +123,8 @@ export default {
   },
   components: {
     'os-window': OSWindow,
-    'screensaver': Screensaver
+    'screensaver': Screensaver,
+    'desktop-icon': DesktopItem
   },
   methods: {
     shutdown: function () {
@@ -238,6 +252,9 @@ a {
 }
 .about-content-wrapper {
   text-align: center;
+}
+.icon-wrapper {
+  margin-top: 10px;
 }
 .right {
   float: right;
