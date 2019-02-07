@@ -18,8 +18,8 @@
         </div>
       </div>
       <span class="main-header-title" @click="showAbout = !showAbout">About</span>
-      <span class="main-header-title right" v-if="showFullScreen" @click="exitFullscreen">Quit</span>
-
+      <span class="main-header-title right">{{ time }}</span>
+      <!--span class="main-header-title right" v-if="showFullScreen" @click="exitFullscreen">Quit</span-->
     </header>
     <main>
       <os-window 
@@ -59,15 +59,24 @@ export default {
       showSettings: false,
       showScreensaver: false,
       hasLoaded: false,
-      showFullScreen: false
+      showFullScreen: false,
+      time: this.formatTime()
     }
   },
   mounted: function () {
     var app = this
     var perc = -500
     var deg = -50
+
     incrAndUpdate()
     detectInactivity()
+    updateClock()
+
+    function updateClock () {
+      setInterval(function () {
+        app.time = app.formatTime()
+      }, 500)
+    }
 
     function incrAndUpdate () {
       perc += 8
@@ -105,6 +114,16 @@ export default {
   },
   methods: {
     shutdown: function () {
+    },
+    formatTime () {
+      var date = new Date()
+      var options = {
+        hour12: false,
+        hour: '2-digit',
+        minute: '2-digit'
+      }
+
+      return date.toLocaleTimeString('en-US', options)
     },
     reloadDocument: function () {
       location.reload()
@@ -210,8 +229,8 @@ header .main-header-title {
   border-style: none;
 }
 a {
-  color: inherit; /* blue colors for links too */
-  text-decoration: inherit; /* no underline */
+  color: inherit;
+  text-decoration: inherit;
 }
 .content-wrapper {
   padding: 40px;
