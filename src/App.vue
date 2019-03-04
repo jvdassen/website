@@ -3,7 +3,6 @@
     <header v-if="hasLoaded">
       <span class="main-header-title main-header-image" @click="requestFullScreen">
        <img src="/static/img/computer.ico">
- 
       </span>
       <div class="main-header-title">File
         <div class="main-header-content">
@@ -21,18 +20,21 @@
       <span class="main-header-title right">{{ time }}</span>
       <!--span class="main-header-title right" v-if="showFullScreen" @click="exitFullscreen">Quit</span-->
     </header>
-    <main>
+    <main v-if="hasLoaded">
       <desktop-icon
         icon="static/img/folder_system.png"
-        title="Settings">
+        title="Settings"
+        class="desktopicon">
       </desktop-icon>
       <desktop-icon
         icon="static/img/folder_floppy.png"
-        title="About">
+        title="About"
+        class="desktopicon">
       </desktop-icon>
       <desktop-icon
         icon="static/img/sad_mac.png"
-        title="Trash">
+        title="Trash"
+        class="desktopicon">
       </desktop-icon>
       <os-window 
         v-if="showAbout" 
@@ -181,6 +183,7 @@ main {
   position: absolute;
   height: calc(100% - 28px);
   width: 100%;
+  animation: fadein 1s;
 }
 header {
   margin: 0;
@@ -188,10 +191,10 @@ header {
   padding: 0 2px 0 12px;
   background-color: #f8f7f8;
   color: black;
-  -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
-  -moz-animation: fadein 2s; /* Firefox < 16 */
-  -ms-animation: fadein 2s; /* Internet Explorer */
-  -o-animation: fadein 2s; /* Opera < 12.1 */
+  -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: fadein 1s; /* Firefox < 16 */
+  -ms-animation: fadein 1s; /* Internet Explorer */
+  -o-animation: fadein 1s; /* Opera < 12.1 */
   animation: fadein 1s;
 }
 
