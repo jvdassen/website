@@ -145,8 +145,12 @@ export default {
       location.reload()
     },
     requestFullScreen: function () {
-      var eldem = document.querySelector('html')
-      console.log('fullscreen: ', eldem.webkitRequestFullScreen())
+      var elem = document.querySelector('html')
+      try {
+        elem.webkitRequestFullScreen()
+      } catch (e) {
+        elem.requestFullscreen()
+      }
       this.showFullScreen = true
     },
     exitFullscreen: function () {

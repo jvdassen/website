@@ -33,7 +33,6 @@ export default {
     'draggable': VueDraggableResizable
   },
   mounted: function () {
-    console.log('OS Window mounted', global, window, Window)
   },
   computed: {
     'initialPosition': function () {
