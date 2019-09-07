@@ -1,6 +1,6 @@
 <template> 
   <div class="icon-wrapper">
-    <img v-bind:src="icon" class="icon">
+    <img v-bind:src="icon" class="icon" v-bind:alt="title">
     <span class="icon-title">{{ title }}</span>
   </div>
 </template>
@@ -31,12 +31,21 @@ export default {
   --webkit-align-items: center;
   --webkit-justify-content: space-around;
   --webkit-flex-direction: column;
+  padding: 20px;
+  box-sizing: border-box;
 }
 .icon {
-  width: 50px;
-  height: 50px;
+  height: 100%;
+  margin-bottom: 5px;
 }
 .icon-title {
   font-size: 12px;
+}
+.icon-wrapper:active > .icon-title {
+  color: white!important;
+}
+.icon-wrapper:hover > .icon-title {
+  /*color: grey;*/
+  text-decoration: underline;
 }
 </style>
