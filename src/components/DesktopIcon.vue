@@ -1,5 +1,5 @@
 <template> 
-  <div class="icon-wrapper">
+  <div class="icon-wrapper" @click="$emit('click', $event)">
     <img v-bind:src="icon" class="icon" v-bind:alt="title">
     <span class="icon-title">{{ title }}</span>
   </div>

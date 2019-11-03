@@ -53,10 +53,10 @@ h1, h2 {
 .window {
   border: solid 1px;
   max-width: 500px;
-  background-color: #EDECED;
   -webkit-box-shadow: 14px 15px 25px -1px rgba(122,122,122,1);
   -moz-box-shadow: 14px 15px 25px -1px rgba(122,122,122,1);
   box-shadow: 14px 15px 25px -1px rgba(122,122,122,1);
+  background: #EDECED;;
 }
 header {
   margin: 0;
@@ -83,9 +83,8 @@ header span {
 }
 .window-content {
   border-top: solid 1px black;
-  background-color: white;
   height: 100%;
-  padding: 5px;
+  /*padding: 5px;*/
   box-sizing: border-box;
 }
 .window-content > h1 {

@@ -24,12 +24,14 @@
       <desktop-icon
         icon="static/img/folder_system.png"
         title="Settings"
-        class="desktopicon">
+        class="desktopicon"
+        @click="showSettings = !showSettings">
       </desktop-icon>
       <desktop-icon
         icon="static/img/folder_floppy.png"
         title="About"
-        class="desktopicon">
+        class="desktopicon"
+        @click="showAbout = !showAbout">
       </desktop-icon>
       <desktop-icon
         icon="static/img/sad_mac.png"
@@ -37,14 +39,16 @@
         class="desktopicon">
       </desktop-icon>
       <os-window 
+        style="width: 400px;"
         v-if="showAbout" 
         @close="showAbout = false"
         :title="'About'">
-        <div class="about-content-wrapper content-wrapper">
+        <about-page></about-page>
+        <!--div class="about-content-wrapper content-wrapper">
           <p>Jan von der Assen</p>
           <p>●</p>
           <p>Web Developer</p>
-        </div>
+        </div-->
       </os-window>
       <os-window 
         v-if="showSettings" 
@@ -65,6 +69,7 @@
 import OSWindow from './components/OSWindow.vue'
 import Screensaver from './components/Screensaver.vue'
 import DesktopItem from './components/DesktopIcon.vue'
+import AboutPage from './components/AboutPage.vue'
 
 export default {
   name: 'app',
@@ -126,7 +131,8 @@ export default {
   components: {
     'os-window': OSWindow,
     'screensaver': Screensaver,
-    'desktop-icon': DesktopItem
+    'desktop-icon': DesktopItem,
+    'about-page': AboutPage
   },
   methods: {
     shutdown: function () {
