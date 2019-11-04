@@ -41,9 +41,6 @@ export default class About extends LitElement {
       a {
         font-style: italic;
       }
-      main {
-        margin: 10px 0 10px 0;
-      }
       .title {
         font-style: italic;
       }
