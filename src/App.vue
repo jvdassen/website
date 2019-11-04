@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <header v-if="hasLoaded">
-      <span class="main-header-title main-header-image" @click="requestFullScreen">
+      <span class="main-header-title main-header-image">
        <img src="/static/img/computer.ico">
       </span>
       <div class="main-header-title">File
@@ -18,7 +18,6 @@
       </div>
       <span class="main-header-title" @click="showAbout = !showAbout">About</span>
       <span class="main-header-title right">{{ time }}</span>
-      <!--span class="main-header-title right" v-if="showFullScreen" @click="exitFullscreen">Quit</span-->
     </header>
     <main v-if="hasLoaded">
       <desktop-icon
@@ -44,20 +43,13 @@
         @close="showAbout = false"
         :title="'About'">
         <about-page></about-page>
-        <!--div class="about-content-wrapper content-wrapper">
-          <p>Jan von der Assen</p>
-          <p>●</p>
-          <p>Web Developer</p>
-        </div-->
       </os-window>
       <os-window 
+        style="width: 300px;"
         v-if="showSettings" 
         @close="showSettings = false"
         :title="'Settings'">
-        <div class="content-wrapper">
-          <div><span>Use Fullscreen</span></div>
-          <div><span>Enable Screensaver</span></div>
-        </div>
+        <settings-page></settings-page>
       </os-window>
     </main>
     <screensaver v-if="showScreensaver">
@@ -69,7 +61,11 @@
 import OSWindow from './components/OSWindow.vue'
 import Screensaver from './components/Screensaver.vue'
 import DesktopItem from './components/DesktopIcon.vue'
-import AboutPage from './components/AboutPage.vue'
+import About from './web-components/AboutPage'
+import Settings from './web-components/SettingsPage'
+
+customElements.define('about-page', About)
+customElements.define('settings-page', Settings)
 
 export default {
   name: 'app',
@@ -79,7 +75,6 @@ export default {
       showSettings: false,
       showScreensaver: false,
       hasLoaded: false,
-      showFullScreen: false,
       time: this.formatTime()
     }
   },
@@ -131,8 +126,7 @@ export default {
   components: {
     'os-window': OSWindow,
     'screensaver': Screensaver,
-    'desktop-icon': DesktopItem,
-    'about-page': AboutPage
+    'desktop-icon': DesktopItem
   },
   methods: {
     shutdown: function () {
@@ -149,19 +143,6 @@ export default {
     },
     reloadDocument: function () {
       location.reload()
-    },
-    requestFullScreen: function () {
-      var elem = document.querySelector('html')
-      try {
-        elem.webkitRequestFullScreen()
-      } catch (e) {
-        elem.requestFullscreen()
-      }
-      this.showFullScreen = true
-    },
-    exitFullscreen: function () {
-      document.exitFullscreen()
-      this.showFullScreen = false
     }
   }
 }
