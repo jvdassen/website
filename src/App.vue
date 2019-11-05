@@ -112,14 +112,22 @@ export default {
       var mouseMoveId
 
       mouseMoveId = setTimeout(function () {
-        app.showScreensaver = true
+        app.showScreensaver = getScreenSaverSetting().enabled
       }, 15000)
       document.onmousemove = function () {
         app.showScreensaver = false
         clearTimeout(mouseMoveId)
         mouseMoveId = setTimeout(function () {
-          app.showScreensaver = true
+          app.showScreensaver = getScreenSaverSetting().enabled
         }, 15000)
+      }
+
+      function getScreenSaverSetting () {
+        var stored = localStorage.getItem('screensaverenabled')
+        var defaultValue = null
+        return {
+          enabled: stored === 'true' || stored === defaultValue
+        }
       }
     }
   },

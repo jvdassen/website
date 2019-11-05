@@ -48,8 +48,11 @@ export default class Settings extends LitElement {
   getSettingsFromStorage () {
     var fullScreenMode, screenSaverEnabled
     try {
-      fullScreenMode = localStorage.getItem('fullscreenmode') === 'true'
-      screenSaverEnabled = localStorage.getItem('screensaverenabled') === 'true'
+      var storedFullScreen = localStorage.getItem('fullscreenmode')
+      var storedScreenSaver = localStorage.getItem('screensaverenabled')
+
+      fullScreenMode = storedFullScreen === 'true'
+      screenSaverEnabled = storedScreenSaver === 'true' || storedScreenSaver === null
     } catch (err) {
       console.warn('Error reading from local storage: ', err)
       fullScreenMode = false
