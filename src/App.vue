@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     <header v-if="hasLoaded">
-      <span class="main-header-title main-header-image">
+      <!--span class="main-header-title main-header-image"
        <img src="/static/img/computer.ico">
-      </span>
+      </span-->
       <div class="main-header-title">File
         <div class="main-header-content">
           <div class="" @click="showSettings = !showSettings">Settings</div>

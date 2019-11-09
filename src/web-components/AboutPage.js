@@ -15,7 +15,7 @@ export default class About extends LitElement {
       </section>
       <hr>
       <footer class="wrapped">
-        <p class="title">Skills and Interests</p>
+        <p class="title">Interests</p>
         <ul class="wrapped">
           <li>Web Development - EcmaScript, Web-Components, PWA, lit-html 🔥, React.js, Vue.js </li>
           <li>Backend Development - Python, golang, Java 12</li>
