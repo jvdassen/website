@@ -61,6 +61,8 @@ export default class About extends LitElement {
       }
       section {
         margin: 10px 0 10px 0;
+      }
+      p {
         -webkit-user-select: all;  /* Chrome 49+ */
         -moz-user-select: all;     /* Firefox 43+ */
         -ms-user-select: all;      /* No support yet */
