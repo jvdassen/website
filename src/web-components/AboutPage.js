@@ -46,6 +46,7 @@ export default class About extends LitElement {
       }
       hr {
         color: #ccccff;
+        margin: 0 20px 0 20px;
       }
       footer {
         padding-top: 10px;
@@ -59,6 +60,9 @@ export default class About extends LitElement {
       ul li:before {
         content: "- ";
         margin-left: -15px;
+      }
+      footer {
+        margin-bottom: 20px;
       }
     `
   }

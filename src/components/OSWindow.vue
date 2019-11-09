@@ -83,7 +83,6 @@ header span {
 }
 .window-content {
   border-top: solid 1px black;
-  height: 100%;
   /*padding: 5px;*/
   box-sizing: border-box;
 }
