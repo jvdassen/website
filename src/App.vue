@@ -16,6 +16,12 @@
           <div class=""><a href="https://linkedin.com/in/jan-von-der-assen-975083105">LinkedIn</a></div>
         </div>
       </div>
+      <div class="main-header-title">Utilities
+        <div class="main-header-content">
+          <div class="" @click="showPwGen = !showPwGen">Password generator</div>
+          <div class="" @click="showMockery = !showMockery">Mock string</div>
+        </div>
+      </div>
       <span class="main-header-title" @click="showAbout = !showAbout">About</span>
       <span class="main-header-title right">{{ time }}</span>
     </header>
@@ -37,9 +43,9 @@
         title="Trash"
         class="desktopicon">
       </desktop-icon>
-      <os-window 
+      <os-window
         style="width: 400px;"
-        v-if="showAbout" 
+        v-if="showAbout"
         @close="showAbout = false"
         :title="'About'">
         <about-page></about-page>
@@ -50,6 +56,13 @@
         @close="showSettings = false"
         :title="'Settings'">
         <settings-page></settings-page>
+      </os-window>
+      <os-window 
+        style="width: 360px;"
+        v-if="showPwGen" 
+        @close="showPwGen = false"
+        :title="'Password Generator'">
+        <password-generator></password-generator>
       </os-window>
     </main>
     <screensaver v-if="showScreensaver">
@@ -63,9 +76,11 @@ import Screensaver from './components/Screensaver.vue'
 import DesktopItem from './components/DesktopIcon.vue'
 import About from './web-components/AboutPage'
 import Settings from './web-components/SettingsPage'
+import PassWordGenerator from './web-components/PWGenPage'
 
 customElements.define('about-page', About)
 customElements.define('settings-page', Settings)
+customElements.define('password-generator', PassWordGenerator)
 
 export default {
   name: 'app',
@@ -74,6 +89,8 @@ export default {
       showAbout: false,
       showSettings: false,
       showScreensaver: false,
+      showPwGen: false,
+      showMockery: false,
       hasLoaded: false,
       time: this.formatTime()
     }
