@@ -27,21 +27,22 @@
     </header>
     <main v-if="hasLoaded">
       <desktop-icon
-        icon="static/img/folder_system.png"
-        title="Settings"
-        class="desktopicon"
-        @click="showSettings = !showSettings">
-      </desktop-icon>
-      <desktop-icon
-        icon="static/img/folder_floppy.png"
+        icon="static/img/desktopicons/about.png"
         title="About"
         class="desktopicon"
         @click="showAbout = !showAbout">
       </desktop-icon>
       <desktop-icon
-        icon="static/img/sad_mac.png"
-        title="Trash"
-        class="desktopicon">
+        icon="static/img/desktopicons/settings.png"
+        title="Settings"
+        class="desktopicon"
+        @click="showSettings = !showSettings">
+      </desktop-icon>
+      <desktop-icon
+        icon="static/img/desktopicons/utilities.png"
+        title="Utilities"
+        class="desktopicon"
+        @click="showPwGen = !showPwGen">
       </desktop-icon>
       <os-window
         style="width: 400px;"
@@ -208,9 +209,9 @@ header {
   background-color: #f8f7f8;
   color: black;
   -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
-  -moz-animation: fadein 1s; /* Firefox < 16 */
+  -moz-animation: fadein 1s; /* Firefox  16 */
   -ms-animation: fadein 1s; /* Internet Explorer */
-  -o-animation: fadein 1s; /* Opera < 12.1 */
+  -o-animation: fadein 1s; /* Opera  12.1 */
   animation: fadein 1s;
 }
 

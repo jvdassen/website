@@ -35,9 +35,9 @@ export default {
   box-sizing: border-box;
 }
 .icon {
-  max-height: 40px;
   width: auto;
-  margin-bottom: 5px;
+  min-height: 45px;
+  margin-bottom: 10px;
 }
 .icon-title {
   font-size: 12px;
