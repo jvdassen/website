@@ -22,6 +22,9 @@ export default class About extends LitElement {
           <li>Computer Networks, Docker, Linux, <a href="https://github.com/bazo-blockchain">Blockchain</a></li>
         </ul>
       </footer>
+      <dfn>
+        <p>Design assets: Courtesy of <a href="https://www.galster.art" target="_blank">galster.art</a></p>
+      </dfn>
     `
   }
   static get styles () {
@@ -63,6 +66,18 @@ export default class About extends LitElement {
       }
       footer {
         margin-bottom: 20px;
+      }
+      dfn {
+      }
+      dfn > p {
+        background-color: lightyellow;
+        padding: 10px 10px 5px 5px;
+        margin-bottom: 0px;
+        font-size: 0.8em;
+        text-align: right;
+      }
+      dfn, dfn > p > a {
+        font-style: normal;
       }
     `
   }
